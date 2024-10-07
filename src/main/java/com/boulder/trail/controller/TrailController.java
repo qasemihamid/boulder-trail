@@ -14,7 +14,6 @@ import com.boulder.trail.service.TrailService.GetTrailListInputDto;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 public class TrailController {
 	
@@ -24,7 +23,6 @@ public class TrailController {
 	// get the list of Trails using filter parameters
 	@PostMapping(path = "/getAllTrails")
 	public ResponseEntity<?> getAllTrails(@RequestBody GetTrailListInputDto input){
-		
 		try {
 			List<TrailDTO> trails = trailService.getAllTrails(input);
 			return ResponseEntity.ok(trails);
@@ -34,10 +32,5 @@ public class TrailController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An unexpected error occurred. Please try again.");
 		}
-		
-		
-		
 	}
-	
-
 }
